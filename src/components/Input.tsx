@@ -8,6 +8,7 @@ interface IInput {
 
 export const Input = ({name, label}:IInput) => (
    <Field  
+      aria-label="input"
       name={name}
       placeholder={label} 
       color="primary"
@@ -23,6 +24,7 @@ export const Input = ({name, label}:IInput) => (
 
 export const InputPassword = ({name, label}:IInput) => (
    <Field  
+      aria-label="input"
       name={name}
       placeholder={label} 
       color="primary"
@@ -38,6 +40,7 @@ export const InputPassword = ({name, label}:IInput) => (
 
 export const InputChat = ({name, label}:IInput) => (
    <Field  
+      aria-label="input"
       name={name}
       placeholder={label} 
       autoComplete="off"
@@ -49,6 +52,7 @@ export const InputChat = ({name, label}:IInput) => (
 
 export const InputUpdate = ({name, label}:IInput) => (
    <Field  
+      aria-label="input"
       name={name}
       placeholder={label} 
       autoComplete="off"
