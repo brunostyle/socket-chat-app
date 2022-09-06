@@ -1,0 +1,19 @@
+*::-webkit-scrollbar {
+   display: none;
+}
+
+@media screen and (max-width: 678px) {
+   p { font-size: 14px }
+}
+
+@media screen and (max-width: 400px) {
+   p { font-size: 13px }
+}
+
+@media screen and (max-width: 300px) {
+   p { font-size: 12px }
+}
+
+@media screen and (max-width: 250px) {
+   p { font-size: 11px }
+}
