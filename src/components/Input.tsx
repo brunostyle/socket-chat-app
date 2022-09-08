@@ -45,7 +45,6 @@ export const InputChat = ({name, label}:IInput) => (
       placeholder={label} 
       autoComplete="off"
       clearable 
-      autoFocus
       fullWidth 
       as={NextInput}
    />
