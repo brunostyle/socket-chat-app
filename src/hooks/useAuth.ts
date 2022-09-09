@@ -60,16 +60,21 @@ export const useAuth = create<IAuth>(set => ({
 	},
 
 	validateToken: async () => {
-		set({ checking: true });
-		const token = localStorage.getItem('token');
-		if (!token) {
+		try {
+			set({ checking: true });
+			const token = localStorage.getItem('token');
+			if (!token) {
+				set({ checking: false, logged: false });
+				return false;
+			}
+			const data = await fetchWithToken({ endpoint: '/auth/renew' });
+			localStorage.setItem('token', data.token);
+			set({ user: { uid: data.uid, name: data.name, email: data.email }, checking: false, logged: true });
+			return true;				
+		} catch (error) {
+			localStorage.removeItem('token');
 			set({ checking: false, logged: false });
-			return false;
 		}
-		const data = await fetchWithToken({ endpoint: '/auth/renew' });
-		localStorage.setItem('token', data.token);
-		set({ user: { uid: data.uid, name: data.name, email: data.email }, checking: false, logged: true });
-		return true;
 	},
 
 	logout: () => {

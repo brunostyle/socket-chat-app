@@ -55,7 +55,7 @@ export const RouterApp = () => {
 	return (
 		<Routes>
 			<Route path="/" element={
-            <Private isLogged={!!logged}>
+            <Private isLogged={logged}>
               <LayoutApp />
             </Private>  
          }>
@@ -63,7 +63,7 @@ export const RouterApp = () => {
 				<Route path="chat/:contactID" element={<Chat />} />
 			</Route>
          <Route path="/auth/*" element={
-            <Public isLogged={!!logged}>
+            <Public isLogged={logged}>
                <RouterAuth />
             </Public>
          } />			
