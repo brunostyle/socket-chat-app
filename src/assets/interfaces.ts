@@ -24,9 +24,9 @@ export interface IMessage {
 }
 
 export interface IUser {
-   uid: string;
+   uid?: string;
    name: string;
    email: string;
    online: boolean;
-   avatar?: string;
+   img?: string;
 }

@@ -9,7 +9,7 @@ interface IFetch {
 	method?: Methods;
 }
 
-export const fetchWithoutToken = async ({ endpoint, data, method }: IFetch) => {
+export const fetchWithoutToken = async ({ endpoint, method, data }: IFetch) => {
 	const config = { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) };
 	const res = method === 'POST' ? await fetch(baseURL + endpoint, config) : await fetch(baseURL + endpoint);
 	const info = await res.json();
@@ -26,6 +26,18 @@ export const fetchWithToken = async ({ endpoint, method, data }: IFetch) => {
 		method === 'GET' || method === 'DELETE'
 			? { method, headers: { 'access-token': TOKEN, 'Content-Type': 'application/json' } }
 			: { method, headers: { 'access-token': TOKEN, 'Content-Type': 'application/json' }, body: JSON.stringify(data) };
+	const res = await fetch(baseURL + endpoint, config);
+	const info = await res.json();
+	if (!res.ok) {
+		info.map((err: string) => toast.error(err));
+		throw new Error();
+	}
+	return info;
+};
+
+export const fetchWithTokenImg = async ({ endpoint, method, data }: IFetch) => {
+	const TOKEN = localStorage.getItem('token') ?? '';
+	const config = { method, headers: { 'access-token': TOKEN }, body: data };
 	const res = await fetch(baseURL + endpoint, config);
 	const info = await res.json();
 	if (!res.ok) {

@@ -37,7 +37,7 @@ export const Chat = () => {
 				<ContainerCollapse>
 					<Menu>
 						<Row>
-							<User squared src={contactActive?.avatar} text={contactActive?.name.charAt(0).toUpperCase()} color="gradient" name={contactActive?.name} description={contactActive?.email} />
+							<User squared src={contactActive?.img} text={contactActive?.name.charAt(0).toUpperCase()} color="gradient" name={contactActive?.name} description={contactActive?.email} />
 						</Row>
 						<Row justify="flex-end">
 							<Tooltip content="Return" placement="bottom">
