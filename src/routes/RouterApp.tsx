@@ -44,9 +44,7 @@ export const RouterApp = () => {
 
 	//Escucha los mensajes recibidos
   	useEffect(() => {
-		socket?.on('personal-message', (message) => {
-			newMessage(message);
-		});
+		socket?.on('personal-message', newMessage);
   	}, [socket])
 	//---------------------------------------------------------------------------
 

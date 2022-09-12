@@ -20,7 +20,7 @@ export const Contact = ({ uid, name, email, img, online }: IUser) => {
 					<div>
 						<Badge content="" color="success" placement="top-left"  variant="dot" isInvisible={!online} disableAnimation>
 							<User src={img!} text={name.charAt(0).toUpperCase()} squared color="gradient" name={name} description={email} />
-		  				</Badge>
+						</Badge>
 					</div>
 				</Card.Body>
 			</Card>

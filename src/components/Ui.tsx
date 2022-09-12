@@ -6,7 +6,6 @@ import { Form as Formulary } from 'formik';
 export const Menu = styled(Row, {
 	gap: '1em',
 	backgroundColor: '$backgroundContrast',
-	outline: '2px solid $background',
 	padding: '.5em 1em',
 });
 
@@ -20,7 +19,7 @@ export const Message = styled(Text, {
 	backgroundColor: '$backgroundContrast',
 	alignSelf: 'start',
 	opacity: .8,
-	padding: '.5em',
+	padding: '.3em .5em',
 	borderRadius: '.5em',
 	width: 'auto',
 	minWidth: '20%',
@@ -30,6 +29,7 @@ export const Message = styled(Text, {
 export const NewMessage = styled(Message, {
 	backgroundColor: '$primary',
 	alignSelf: 'end',
+	padding: '.3em .5em',
 });
 
 export const Center = styled(Col, {
