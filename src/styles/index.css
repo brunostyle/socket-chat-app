@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.outline-none {
+   outline: none;
+}
+ 
+*::-webkit-scrollbar {
+   display: none;
+}
+
+.pattern {
+   width: 100%;
+   height: 100vh;
+   background: url('/pattern.svg');
+   background-position: center;
+   background-repeat: no-repeat;
+ }
+
+.texture {
+   width: 100%;
+   height: 100vh;
+   background: url('/texture.png');
+   background-position: center;
+   background-blend-mode: darken;
+   background-color: rgb(0 0 0 / .7);
+ }
+
+@media screen and (max-width: 900px) {
+   html { font-size: 15px }
+ }
+ 
+ @media screen and (max-width: 678px) {
+   html { font-size: 14px }
+ }
+ 
+ @media screen and (max-width: 444px) {
+   html { font-size: 13px }
+ }
+ 
+ @media screen and (max-width: 300px) {
+   html { font-size: 12px }
+ }
+ 
+ @media screen and (max-width: 250px) {
+   html { font-size: 11px }
+ }
