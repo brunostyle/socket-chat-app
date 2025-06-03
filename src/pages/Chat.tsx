@@ -2,7 +2,7 @@ import { Form, Formik, type FormikHelpers } from 'formik';
 import { IoArrowBackOutline, IoSendOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 import { messageSchema } from '../assets/validations';
-import { Messages, CustomButtonIcon, Avatar, CustomInput, WithoutMessage } from '../components';
+import { Messages, CustomButtonIcon, Avatar, WithoutMessage, CustomInputChat } from '../components';
 import { useAuth, useChat, useSocket } from '../hooks';
 import { Spinner } from '@heroui/react';
 import { Center, ContainerCollapse, Flex, Menu } from '../styles';
@@ -49,8 +49,8 @@ export const Chat = () => {
 				<Formik initialValues={initial} onSubmit={handleSubmit} validationSchema={messageSchema}>
 					<Form>
 						<Flex className="p-2">
-							<CustomInput name="message" placeholder="Escribe un mensaje aqui" />
-							<CustomButtonIcon color="primary" variant="solid"><IoSendOutline /></CustomButtonIcon>
+							<CustomInputChat name="message" placeholder="Escribe un mensaje aqui" />
+							<CustomButtonIcon type="submit" color="primary" variant="solid"><IoSendOutline /></CustomButtonIcon>
 						</Flex>
 					</Form>
 				</Formik>

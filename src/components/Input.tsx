@@ -35,6 +35,26 @@ export const CustomInput = ({ name, label, icon, type = 'text', isDisabled = fal
    )
 }
 
+export const CustomInputChat = ({ name, label, icon, type = 'text', isDisabled = false, placeholder, variant = 'flat' }: IInput) => {
+   return (
+      <Field
+         aria-label="input"
+         name={name}
+         type={type}
+         isDisabled={isDisabled}
+         variant={variant}
+         label={label}
+         labelPlacement="outside"
+         placeholder={placeholder}
+         autoComplete="off"
+         size="sm"
+         fullWidth
+         startContent={<span className="text-gray-500 text-small">{icon}</span>}
+         as={HeroInput}
+      />
+   )
+}
+
 export const InputPassword = ({name, label}:IInput) => (
    <Field  
       aria-label="input"
