@@ -67,6 +67,5 @@ export const InputPassword = ({name, label}:IInput) => (
       fullWidth 
       helperColor="error"
       helperText={<ErrorMessage name={name} />}
-      // as={HeroInput.Password}
    />
 )

@@ -59,7 +59,7 @@ export const useAuth = create<IAuth>(set => ({
 			set({ isUpdating: true });
 			const data = await fetchWithToken({ endpoint: '/auth/update/' + uid, data: { name, email }, method: 'PUT' });
 			set({ user: { uid, name: data.name, email: data.email, img: data.img }, isUpdating: false });
-			notify.success('User updated');
+			notify.success('Usuario actualizado');
 		} catch (error) {
 			set({ isUpdating: false });
 		}
@@ -70,7 +70,7 @@ export const useAuth = create<IAuth>(set => ({
 			set({ isImgLoading: true });
 			const data = await fetchWithTokenImg({ endpoint: '/auth/update/img/' + uid, method: 'POST', data: file });
 			set({ user: { uid, name: data.name, email: data.email, img: data.img }, isImgLoading: false });
-			notify.success('Image added');
+			notify.success('Imagen añadida');
 		} catch (error) {
 			set({ isImgLoading: false });
 		}
