@@ -1,11 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Login, Register } from '../pages';
+import { LayoutAuth } from '../layout';
 
 export const RouterAuth = () => (
 	<Routes>
 		<Route path="/">
-			<Route index element={<Login />} />
-			<Route path="register" element={<Register />} />
+			<Route index element={<LayoutAuth />} />
 			<Route path="*" element={<Navigate to="/auth/" />} />
 		</Route>
 	</Routes>

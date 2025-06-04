@@ -1,28 +1,34 @@
-import { Card, CardBody, CardHeader, Image } from "@heroui/react";
+import { Card, CardBody, CardHeader, Image, Tab, Tabs } from "@heroui/react";
 import { Container } from "../styles";
-import type { ReactNode } from "react";
+import { useState, type Key } from "react";
+import { Login, Register } from "../pages";
+import { IoPersonAddOutline, IoKeyOutline } from "react-icons/io5";
 
-interface ILayout {
-   children: ReactNode;
-   title: string;
+export const LayoutAuth = () => {
+   const [selected, setSelected] = useState("sign-in");
+   return (
+      <div className="pattern">
+         <Container className="flex">
+            <Card className="w-[95%] max-w-[500px] m-auto border border-white/20 bg-gradient-to-tr from-background via-content1 to-background">
+               <CardHeader className="grid gap-2 justify-center items-center text-center">
+                  <div className="m-auto">
+                     <Image src="/llamada.png" width={80} height={80} alt="" />
+                  </div>
+                  <h1 className="font-bold text-2xl">YourPhone</h1>
+                  <h4 className="text-gray-500 text-sm">Una app sencilla y confiable para chatear</h4>
+               </CardHeader>
+               <CardBody>
+                  <Tabs fullWidth size="sm" variant="bordered" color="primary" selectedKey={selected} onSelectionChange={(key: Key) => setSelected(String(key))}>
+                     <Tab key="sign-in" title={<div className="flex items-center gap-2"><IoKeyOutline /><span>Inicia sesion</span></div>}>
+                        <Login />
+                     </Tab>
+                     <Tab key="sign-up" title={<div className="flex items-center gap-2"><IoPersonAddOutline /><span>Registrate</span></div>}>
+                        <Register />
+                     </Tab>
+                  </Tabs>
+               </CardBody>
+            </Card>
+         </Container>
+      </div>
+   )
 }
-
-export const LayoutAuth = ({ children, title }: ILayout) => (
-   <div className="pattern">
-      <Container className="grid grid-cols-2 gap-4 place-content-center">
-         <div className="flex justify-center items-center">
-            {/* <Image disableSkeleton className="hidden md:block" src="/auris.png" alt="Ilustracion" /> */}
-         </div>
-         <Card className="col-span-2 md:col-span-1 bg-opacity-40">
-            <CardHeader className="grid justify-center text-center items-center">
-               <Image src="/llamada.png" width={80} height={80} alt="" />
-               <h1 className="font-bold text-2xl">YourPhone</h1>
-               <h4 className="text-gray-500 text-sm mb-4">{title}</h4>
-            </CardHeader>
-            <CardBody>
-               {children}
-            </CardBody>
-         </Card>
-      </Container>
-   </div>
-)
